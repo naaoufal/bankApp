@@ -2,6 +2,7 @@
 
 # dependencies
 /node_modules
+/Back_End_BankApp/node_modules
 /.pnp
 .pnp.js
 

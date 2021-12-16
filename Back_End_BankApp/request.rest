@@ -1,0 +1,64 @@
+POST http://localhost:3001/api/users/addOne
+Content-Type: application/json
+
+{
+    "fullname" : "test1",
+    "phone" : "0614675855",
+    "email" : "test1@gmail.com",
+    "password" : "azer"
+}
+
+###
+
+GET http://localhost:3001/api/users/allUser
+
+###
+
+GET http://localhost:3001/api/wallets/allWallets
+
+###
+
+POST http://localhost:3001/api/users/authentification
+Content-Type: application/json
+
+{
+    "email" : "test@gmail.com",
+    "password" : "azer"
+}
+
+###
+
+PATCH http://localhost:3001/api/wallets/sendBalance/61bb48ad96a01d4ddbbc74c6
+Content-Type: application/json
+
+{
+    "recieverId" : "61bb226b715c86400a544fd7",
+    "solde" : "2000"
+}
+
+###
+
+PATCH http://localhost:3001/api/wallets/edit/61bb48ad96a01d4ddbbc74c8
+Content-Type: application/json
+
+{
+    "balance" : "4000"
+}
+
+###
+
+PATCH http://localhost:3001/api/users/edit/61bb5b38fc5b44cf80f872a6
+Content-Type: application/json
+
+{
+    "recieverId" : "61bb5b4ffc5b44cf80f872aa",
+    "balance" : "4000"
+}
+
+###
+
+GET http://localhost:3001/api/transactions/allTransactions
+
+###
+
+GET http://localhost:3001/api/transactions/transactionById/61bb5b38fc5b44cf80f872a6
