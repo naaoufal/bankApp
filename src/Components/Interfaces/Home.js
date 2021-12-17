@@ -35,6 +35,10 @@ import './main.css'
         })
     }
 
+    const handleHistory = () => {
+        navigation("/Transactions")
+    }
+
     const logOut = () => {
         localStorage.clear();
         navigation("/")
@@ -54,6 +58,7 @@ import './main.css'
                         <input onChange={event => setId(event.target.value)} placeholder="Please enter the reciever RIB" type="text" required />
                         <input onChange={event => setSolde(event.target.value)} placeholder="Please enter the balance" type="number" required />
                         <button onClick={handleSend} id="send">Send</button>
+                        <button id="tra" onClick={handleHistory}>My Transactions</button>
                     </div>
                     <button onClick={logOut}>LogOut</button>
                 </div>
