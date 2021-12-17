@@ -19,20 +19,24 @@ import './main.css'
 
     // our function :
     const handleSend = () => {
-        fetch(`http://localhost:3001/api/users/edit/${info._id}`, {
-            method : 'PATCH',
-            headers : {
-                'Content-Type' : 'application/json'
-            },
-            body : JSON.stringify({
-                recieverId : id,
-                balance : solde
+        if(solde != "" && id != "") {
+            fetch(`http://localhost:3001/api/users/edit/${info._id}`, {
+                method : 'PATCH',
+                headers : {
+                    'Content-Type' : 'application/json'
+                },
+                body : JSON.stringify({
+                    recieverId : id,
+                    balance : solde
+                })
+            }).then(res => {
+                return res.json()
+            }).then(data => {
+                console.log(data)
             })
-        }).then(res => {
-            return res.json()
-        }).then(data => {
-            console.log(data)
-        })
+        } else {
+            toast.warn("Please enter all the fields")
+        }
     }
 
     const handleHistory = () => {
@@ -52,7 +56,7 @@ import './main.css'
                     <h3>General Informatios :</h3>
                     <p>RIB : {info._id}</p>
                     <p>Full name : {info.fullname}</p>
-                    <p>My Balance : {info.balance || info.balance - solde}</p>
+                    <p>My Balance : {info.balance - solde}</p>
                     
                     <div class="sub">
                         <input onChange={event => setId(event.target.value)} placeholder="Please enter the reciever RIB" type="text" required />
